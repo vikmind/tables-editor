@@ -1,0 +1,23 @@
+{
+  "name": "json_editor",
+  "version": "0.0.0",
+  "authors": [
+    "Victor Marchenko <viktor.marchenko@gmail.com>"
+  ],
+  "description": "JSON array editor",
+  "keywords": [
+    "json",
+    "editor"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "~3.0.3"
+  }
+}
