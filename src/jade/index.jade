@@ -1,0 +1,77 @@
+doctype html
+html(lang='en')
+	head
+		meta(charset='UTF-8')
+		title JSON arrays editor
+		meta(name='description', content='')
+		meta(name='viewport', content='width=device-width,initial-scale=1')
+		link(rel='stylesheet', href='assets/css/main.css')
+		link(rel='shortcut icon', type='image/x-icon', href='favicon.ico')
+		script(src='bower_components/jquery/jquery.min.js')
+		script(src='assets/js/main.js')
+	body
+		.jumbotron
+			.container
+				a(href='//github.com/vitekmar?tab=repositories').forkme
+					img(src='assets/img/forkme.png')
+				h1 Tables editor
+				p Easy data tables creation:
+				ol
+					li Add columns
+					li Fill data
+					li Copy JSON
+		.data-editor
+			.container
+				.data-editor__add-column
+					h3 Add column
+					.row
+						.col-md-3
+							select.form-control
+								option(value='') Select type
+								option(value='string') String
+								option(value='textarea') Text
+								option(value='boolean') Boolean
+								option(value='number') Number
+						.col-md-3
+							input.form-control(placeholder="Column name")
+						.col-md-3
+							button.btn.js-removeColumn
+								span.glyphicon.glyphicon-plus
+						.col-md-3
+
+					h3 Table data
+				.data-editor__table-wrapper
+					table.table.table-stripped.table-bordered.data-editor__table
+						thead
+							tr
+								th.m-number #
+								th.m-heading
+									span.name Name 
+									small.glyphicon.glyphicon-remove.pull-right
+								th.m-heading
+									span.name Name2 
+									small.glyphicon.glyphicon-remove.pull-right
+						tbody
+							tr
+								td.m-number 1
+								td.m-input
+									input.form-control.table-control(placeholder='Name')
+								td.m-input
+									input.form-control.table-control(placeholder='Name2')
+							tr
+								td.m-number 2
+								td.m-input
+									input.form-control.table-control(placeholder='Name')
+								td.m-input
+									input.form-control.table-control(placeholder='Name2')
+				.data-editor__controls.clearfix
+					button.btn Generate output
+				br
+				.data-editor__output
+					ul.nav.nav-tabs
+						li.active
+							a(href='#jsonTab', data-toggle='tab') JSON
+					.tab-content
+						#jsonTab.tab-pane.fade.in.active
+							br
+							textarea.form-control.js-output
