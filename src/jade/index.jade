@@ -27,7 +27,7 @@ html(lang='en')
 					form.row.js-addForm
 						.col-md-3
 							select.form-control.js-selectType
-								option(value='', disabled, selected) Select type
+								option(value='none', disabled, selected) Column type
 								option(value='string') String
 								option(value='textarea') Text
 								option(value='bool') Boolean
@@ -35,9 +35,9 @@ html(lang='en')
 						.col-md-3
 							input(placeholder="Column name").form-control.js-columnName
 						.col-md-3
-							button.btn
+							button.btn.js-btnAddcolumn
 								span.glyphicon.glyphicon-plus
-						.col-md-3
+							.btn.btn-danger.danger.js-errorHolder.erorr-holder.m-hidden
 				h3 Table data
 				.data-editor__table-wrapper
 					.data-editor__table-holder
@@ -58,4 +58,4 @@ html(lang='en')
 					.tab-content
 						#jsonTab.tab-pane.fade.in.active
 							br
-							textarea.form-control.js-output
+							textarea.form-control.output-area.js-output

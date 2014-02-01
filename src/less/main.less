@@ -13,6 +13,7 @@
 		width: 100%;
 	}
 }
+
 .data-editor{
 	padding-bottom: 40px;
 }
@@ -23,9 +24,19 @@
 	display: inline-block;
 	vertical-align: top;
 }
+.erorr-holder{
+	.transition(opacity .3s);
+	opacity: 1;
+	&.m-hidden{
+		opacity: 0;
+	}
+}
 .data-editor__table{
 	width: auto;
 	th,td{
+		&.m-type-textarea,&.m-type-string{
+			padding-left: 20px;
+		}
 		&.m-number{
 			min-width: 40px;
 			text-align: center;
@@ -39,6 +50,7 @@
 		vertical-align: middle;
 	}
 }
+
 .table-input{
 	border-top: none;
 	border-left: none;
@@ -51,4 +63,8 @@
 	&[type=number]{
 		text-align: right;
 	}
+}
+.output-area{
+	resize: vertical;
+	min-height: 200px;
 }

@@ -7,6 +7,7 @@ jsonEditor = function() {
 		$tableBody = $table.children('tbody'),
 		$getOutput = $('.js-getOutput'),
 		$output = $('.js-output'),
+		$errorHolder = $('.js-errorHolder'),
 		types = {
 			string: {
 				$template: $('<input class="form-control table-input js-input" type="string"/>'),
@@ -71,7 +72,7 @@ jsonEditor = function() {
 		var $th = templates.$th.clone(),
 			$td = templates.$td.clone(),
 			$input = types[type].$template.clone();
-		$th.attr('data-name', name).find('.name').text(name);
+		$th.attr('data-name', name).addClass('m-type-'+type).find('.name').text(name);
 		$tableHead.append($th);
 		$tr = $tableBody.find('tr');
 		for (var i = 0; i < $tr.length; i++) {
@@ -97,9 +98,32 @@ jsonEditor = function() {
 		$newRow.appendTo($tableBody);
 	};
 	var checkInput = function(){
+		if ($addSelect.val() === null){
+			$addSelect.parent().addClass('has-error');
+			showError('Error: no column type');
+			return false;
+		} else {
+			$addSelect.parent().removeClass('has-error');
+		}
+		if ($addInput.val() === ''){
+			$addInput.parent().addClass('has-error');
+			showError('Error: no column name');
+			return false;
+		} else {
+			$addInput.parent().removeClass('has-error');
+		}
+		hideError();
 		return true;
 	};
-	var showError = function(){};
+	var showError = function(errorText){
+		$errorHolder.text(errorText);
+		$errorHolder.removeClass('m-hidden');
+		$('.js-btnAddcolumn').hide();
+	};
+	var hideError = function(){
+		$errorHolder.addClass('m-hidden');
+		$('.js-btnAddcolumn').show();
+	};
 	var generateJson = function(){
 		var output = [];
 		$tableBody.children('tr').each(function(){
@@ -118,11 +142,8 @@ jsonEditor = function() {
 	};
 	$addForm.on('submit', function(e){
 		e.preventDefault();
-		var checkResult = checkInput();
-		if (!checkResult.error){
+		if (checkInput()){
 			addColumn($addSelect.val(), $addInput.val());
-		} else {
-			showError(checkResult.errorText);
 		}
 		return false;
 	});

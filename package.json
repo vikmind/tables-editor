@@ -1,6 +1,6 @@
 {
   "name": "json_editor",
-  "version": "0.7.0",
+  "version": "0.7.5",
   "description": "JSON array editor",
   "main": "index.js",
   "scripts": {

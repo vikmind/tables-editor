@@ -53,9 +53,15 @@ module.exports = function(grunt) {
 				files: ['src/js/**'],
 				tasks: ['js']
 			},
-			css:{
+			less:{
 				files: ['src/less/**'],
-				tasks: ['css']
+				tasks: ['css'],
+				options: {
+					livereload: false
+				}
+			},
+			css: {
+				files: ['assets/css/main.css']
 			},
 			html:{
 				files: ['src/jade/**'],

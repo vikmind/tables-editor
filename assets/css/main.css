@@ -5844,8 +5844,22 @@ td.visible-print {
   display: inline-block;
   vertical-align: top;
 }
+.erorr-holder {
+  -webkit-transition: opacity 0.3s;
+  transition: opacity 0.3s;
+  opacity: 1;
+}
+.erorr-holder.m-hidden {
+  opacity: 0;
+}
 .data-editor__table {
   width: auto;
+}
+.data-editor__table th.m-type-textarea,
+.data-editor__table td.m-type-textarea,
+.data-editor__table th.m-type-string,
+.data-editor__table td.m-type-string {
+  padding-left: 20px;
 }
 .data-editor__table th.m-number,
 .data-editor__table td.m-number {
@@ -5874,5 +5888,9 @@ td.visible-print {
 }
 .table-input[type=number] {
   text-align: right;
+}
+.output-area {
+  resize: vertical;
+  min-height: 200px;
 }
 /*# sourceMappingURL=/assets/css/main.map */
