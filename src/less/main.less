@@ -13,9 +13,15 @@
 		width: 100%;
 	}
 }
-.data-editor{}
+.data-editor{
+	padding-bottom: 40px;
+}
 .data-editor__table-wrapper{
 	overflow-y: scroll;
+}
+.data-editor__table-holder{
+	display: inline-block;
+	vertical-align: top;
 }
 .data-editor__table{
 	width: auto;
@@ -24,18 +30,16 @@
 			min-width: 40px;
 			text-align: center;
 		}
-		&.m-select{
+		&.m-input{
 			width: 150px;
-		}
-		&.m-contol{
-			
+			min-width: 150px;
 		}
 	}
 	>tbody>tr>td{
 		vertical-align: middle;
 	}
 }
-.table-control{
+.table-input{
 	border-top: none;
 	border-left: none;
 	border-right: none;
@@ -43,5 +47,8 @@
 	.box-shadow(none);
 	&:focus{
 		.box-shadow(none);
+	}
+	&[type=number]{
+		text-align: right;
 	}
 }
