@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "JSON data arrays editor",
   "main": "Gruntfile.js",
-  "repository": "https://github.com/vikmind/tables-editor.git"
+  "repository": "https://github.com/vikmind/tables-editor.git",
   "scripts": {
     "test": ""
   },
