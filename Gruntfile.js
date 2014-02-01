@@ -35,10 +35,7 @@ module.exports = function(grunt) {
 		less: {
 			live:{
 				options: {
-					sourceMap: true,
-					sourceMapFilename: 'assets/css/main.map',
-					sourceMapBasepath: '/src/',
-					sourceMapRootpath: '/'
+					cleancss: true
 				},
 				files:{
 					'assets/css/main.css': ['src/less/main.less']
@@ -76,8 +73,23 @@ module.exports = function(grunt) {
 					base: './'
 				}
 			}
+		},
+		notify:{
+			connect:{
+				options:{
+					title: 'Grunt server',
+					message: 'Server started at '+ portNumber
+				}
+			}
+		},
+		notify_hooks:{
+			options:{
+				enabled: true,
+			}
 		}
 	});
+	grunt.loadNpmTasks('grunt-notify');
+	grunt.task.run('notify_hooks');
 	grunt.registerTask('js','',function(){
 		grunt.loadNpmTasks('grunt-contrib-jshint');
 		grunt.loadNpmTasks('grunt-contrib-uglify');
@@ -101,6 +113,7 @@ module.exports = function(grunt) {
 		} else {
 			shell.exec('start http://localhost:' + portNumber);
 		}
+		grunt.task.run('notify:connect');
 		grunt.task.run('watch');
 	});
 };

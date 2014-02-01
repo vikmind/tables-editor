@@ -2,45 +2,43 @@ doctype html
 html(lang='en')
 	head
 		meta(charset='UTF-8')
-		title JSON arrays editor
-		meta(name='description', content='')
+		title Easy tables editor - JSON data arrays editor
+		meta(name='description', content='Easy tables editor - create data tables and get result in JSON format')
 		meta(name='viewport', content='width=device-width,initial-scale=1')
 		link(rel='stylesheet', href='assets/css/main.css')
 		link(rel='shortcut icon', type='image/x-icon', href='favicon.ico')
-		script(src='bower_components/jquery/jquery.min.js')
+		script(src='assets/js/jquery.min.js')
 		script(src='assets/js/main.js')
 	body
 		.jumbotron
 			.container
-				a(href='//github.com/vitekmar?tab=repositories').forkme
-					img(src='assets/img/forkme.png')
-				h1 Tables editor
-				p Easy data tables creation:
+				a(href='//github.com/vikmind?tab=repositories').forkme
+				h1 Easy tables editor
+				p Create json data arrays in three steps:
 				ol
 					li Add columns
 					li Fill data
 					li Copy JSON
-		.data-editor
+		.main-content
 			.container
-				.data-editor__add-column
-					h3 Add column
-					form.row.js-addForm
-						.col-md-3
-							select.form-control.js-selectType
-								option(value='none', disabled, selected) Column type
-								option(value='string') String
-								option(value='textarea') Text
-								option(value='bool') Boolean
-								option(value='number') Number
-						.col-md-3
-							input(placeholder="Column name").form-control.js-columnName
-						.col-md-3
-							button.btn.js-btnAddcolumn
-								span.glyphicon.glyphicon-plus
-							.btn.btn-danger.danger.js-errorHolder.erorr-holder.m-hidden
+				h3 Add column
+				form.row.js-addForm
+					.col-md-3
+						select.form-control.js-selectType
+							option(value='none', disabled, selected) Column type
+							option(value='string') String
+							option(value='textarea') Text
+							option(value='bool') Boolean
+							option(value='number') Number
+					.col-md-3
+						input(placeholder="Column name").form-control.js-columnName
+					.col-md-6
+						button.btn.js-btnAddcolumn
+							span.glyphicon.glyphicon-plus
+						.btn.btn-danger.js-errorHolder.erorr-holder.m-hidden
 				h3 Table data
-				.data-editor__table-wrapper
-					.data-editor__table-holder
+				.data-editor
+					.data-editor__table-wrapper
 						table.table.table-stripped.table-bordered.data-editor__table.js-editorTable
 							thead
 								tr
@@ -48,14 +46,38 @@ html(lang='en')
 							tbody
 								tr
 									td.m-number 0
-				.data-editor__controls.clearfix
-					button.btn.js-getOutput Generate output
-				br
-				.data-editor__output
-					ul.nav.nav-tabs
-						li.active
-							a(href='#jsonTab', data-toggle='tab') JSON
-					.tab-content
-						#jsonTab.tab-pane.fade.in.active
-							br
-							textarea.form-control.output-area.js-output
+				.options
+					h3 Options
+					.row.js-optionsHolder
+						.col-md-3
+							.checkbox
+								label(title='Indented output')
+									input(type='checkbox', name='formatted').js-optionTrigger
+									|  Formatted JSON
+						.col-md-3
+							.checkbox
+								label(title='Don\'t remove empty values from JSON')
+									input(type='checkbox', name='keepEmpty').js-optionTrigger
+									|  Keep empty values
+						.col-md-2
+						.col-md-2
+				.result.clearfix
+					h3.resulte-title
+						span Result: 
+						button.btn.btn-success.js-getOutput Generate 
+					.result__panes
+						ul.nav.nav-tabs
+							li.active
+								a(href='#jsonTab', data-toggle='tab') JSON
+						.tab-content
+							#jsonTab.tab-pane.fade.in.active
+								br
+								textarea.form-control.output-area.js-output
+		footer
+			.container
+				p Built by 
+					a(href="https://twitter.com/vik_mind") @vikmind
+				p Licensed under MIT,
+					br
+					| source code available at 
+					a(href="https://github.com/vikmind/tables-editor") GitHub
